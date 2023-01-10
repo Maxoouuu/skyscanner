@@ -1,20 +1,19 @@
 import React from "react";
 import "./App.css";
-import {Routes, Route} from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { Menu } from "./components/Menu";
+import { Outlet } from "react-router-dom";
 
-function App() {
-  return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/page2" element={<h1>Page 2</h1>} />
-        <Route path="/page3" element={<h1>Page 3</h1>} />
-        <Route path="/page4" element={<h1>Page 4</h1>} />
-      </Routes>
-    </>
-  );
-}
+
+const App = () => (
+  <div className="App">
+    <Menu
+      items={[
+        { label: "Recherche de vols", to: "/" },
+        { label: "Recherche d'aéroports", to: "/airports" },
+      ]}
+    />
+    <Outlet />
+  </div>
+);
 
 export default App;
